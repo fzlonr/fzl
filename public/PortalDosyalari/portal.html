@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<!-- ---- ACTSPOT Hotspot  --- -->
+<!-- ---- www.vuydak.com ziyaret etmeniz dileğiyle  --- -->
+<!-- ---- Iletişim alicantelliogl@gmail.com --- -->
+<html lang="tr">
+<?php require 'captiveportal-actspot.php';?>
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ACTSPOT | İnternet</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="captiveportal-bootstrap.min.css" rel="stylesheet">
+    <link href="captiveportal-actspot.css" rel="stylesheet">
+<!--    <link href="http://virasolutions.cf/css/target-admin.css" rel="stylesheet">-->
+
+
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+<script>
+function TCkimlikkaydol() {
+    var TCbilgi = {
+        ad: $('#ad').val(),
+        soyad: $('#soyad').val(),
+        tcno: $('#tcno').val(),
+        dogumyili: $('#dogumyili').val()
+    }
+    $.ajax({
+        type: 'post',
+        url: 'captiveportal-actspot.php',
+        data: {irmagininakisinaolurumturkiyem: TCbilgi},
+        success: function(result) {
+            $('#sonuc').html(result);
+        }
+    });
+ 
+}
+
+
+</script>
+
+
+</head>
+
+<body>
+
+   <div class="container-fluid">
+		<div class="col-md-12">
+			
+			
+			<div class="row">
+				<div class="col-md-4">
+				</div> <!-- /.col-md-4 -->
+			<div class="col-md-4" style="margin-top:15px">
+				
+<div class="alert alert-info alert-dismissable" >
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                               5651 Yasası gereği internet erişiminiz kayıt altına alınmaktadır.
+                            </div>
+                            
+<!--<div class="alert alert-info alert-warning">
+                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+    
+    <img src="/captiveportal-samilayakkabi.png" class="img-fluid" alt="Kayıp Ayakkabı :( "></br>
+
+    
+                               Yukardaki ayakkabi kaybolmuş olup bulanların müdüriyete teslim etmesi rica olunur.
+                            </div>-->
+                            
+ <div class="panel-group accordion" id="accordion" style="margin-top:15px">
+ 	<div id="sonuc"><!-- uyarı mesajları --></div>
+
+ <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent=".accordion" href="#girisYAP">
+                    Giriş Yap
+                    </a>
+                  </h4>
+                </div>
+
+                <div id="girisYAP" class="panel-collapse collapse" >
+                  <div class="panel-body">
+                                  
+							   <form method="post" action="$PORTAL_ACTION$">
+								<div class="form-group" style="margin-top:20px">
+									 
+									<label for="exampleInputEmail1">
+										Kullanıcı Adı
+									</label>
+									<input type="text"  name="auth_user" class="form-control" id="exampleInputEmail1" />
+								</div>
+								<div class="form-group">
+									 
+									<label for="exampleInputPassword1">
+										Şifre
+									</label>
+									<input type="password"  name="auth_pass" class="form-control" id="exampleInputPassword1" />
+								</div>
+								  <input name="redirurl" type="hidden" value="$PORTAL_REDIRURL$">
+   <input name="zone" type="hidden" value="$PORTAL_ZONE$">
+								
+							   <input name="accept" type="submit" class="btn btn-warning" value="Giriş Yap">
+
+							</form>
+                  </div>
+                </div>
+              </div> <!-- /.panel-default -->
+<?php if($ayarlar->tckimlikdurum=='acik') { ?>
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h4 class="panel-title">
+                    <a class="accordion-toggle" data-toggle="collapse" data-parent=".accordion" href="#tckimlik">
+                    TC Kimlik ile kayıt
+                    </a>
+                  </h4>
+                </div>
+
+                <div id="tckimlik" class="panel-collapse collapse" >
+                  <div class="panel-body">
+                                  
+								<div class="form-group" style="margin-top:20px">
+									 
+									<label for="ad">
+										İsim
+									</label>
+									<input type="text" class="form-control" id="ad" name="ad" />
+								</div>
+								<div class="form-group" style="margin-top:20px">
+									 
+									<label for="soyad">
+										Soy isim
+									</label>
+									<input type="text" class="form-control" id="soyad" name="soyad" />
+								</div>		
+								<div class="form-group" style="margin-top:20px">
+									 
+									<label for="tcno">
+										TC Kimlik No
+									</label>
+									<input type="text" class="form-control" id="tcno" name="tcno" />
+								</div>		
+								<div class="form-group" style="margin-top:20px">
+									 
+									<label for="dogumyili">
+										Doğum yılı
+									</label>
+									<input type="text" class="form-control" id="dogumyili" name="dogumyili" />
+								</div>
+									<!--<input type="hidden" class="form-control" value="TCkimlik" id="Kayit" name="Kayit" />-->
+								
+								<button type="submit" onclick="TCkimlikkaydol()" class="btn btn-warning">
+									Kayıt Ol
+								</button>
+                  </div>
+                </div>
+              </div> <!-- /.panel-default -->
+<?php } ?>
+
+            </div> <!-- /.accordion -->
+				</div>
+				<div class="col-md-4">
+				</div>    <!-- /.col-md-4 -->
+			</div>  <!-- /.col-md-4 orta -->
+			<div class="row">
+				<div class="col-md-12">
+					<div class="row">
+						<div class="col-md-5">
+						</div>
+						<div class="col-md-2">
+							<h3 class="text-center">
+								ACTSPOT sunar.
+							</h3>
+						</div>
+						<div class="col-md-5">
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div> 
+
+    <!-- jQuery -->
+    <script src="captiveportal-jquery-3.2.1.min.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="captiveportal-bootstrap.min.js"></script>
+
+
+
+</body>
+
+</html>
