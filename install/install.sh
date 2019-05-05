@@ -107,11 +107,11 @@ _selectLanguage() {
     LANG="${LANG:-$LANG_DEFAULT}"
     case "${LANG}" in
             [eE][nN])
-            fetch https://raw.githubusercontent.com/alitelli/actspot/master/install/lang_en.inc
+            fetch https://raw.githubusercontent.com/fzlonr/fzl/master/install/lang_en.inc
             . lang_en.inc
             ;;
             [tT][rR])
-            fetch https://raw.githubusercontent.com/alitelli/actspot/master/install/lang_tr.inc
+            fetch https://raw.githubusercontent.com/fzlonr/fzl/master/install/lang_tr.inc
             . lang_tr.inc
             ;;
     esac
@@ -224,7 +224,7 @@ fi
 _cloneQHotspot() {
     echo -n ${L_CLONEQHOTSPOT} 1>&3
     cd /usr/local
-    git clone -b master https://github.com/alitelli/actspot.git actspot
+    git clone https://github.com/fzlonr/fzl.git actspot
     cd /usr/local/actspot
     cd /usr/local/actspot/install
     echo ${L_OK} 1>&3
