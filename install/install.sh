@@ -225,7 +225,7 @@ fi
 _cloneQHotspot() {
     echo -n ${L_CLONEQHOTSPOT} 1>&3
     cd /usr/local
-    git clone https://github.com/fzlonr/fzl.git actspot
+    git clone -b master https://github.com/fzlonr/fzl.git actspot
     cd /usr/local/actspot
     cd /usr/local/actspot/install
     echo ${L_OK} 1>&3
