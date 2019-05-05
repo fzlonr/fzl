@@ -176,6 +176,7 @@ if [ ! -f ${PWD}/restarted.qhs ]; then
 	AddPkg p5-Mozilla-CA
 	AddPkg p5-Net-SSLeay
 	AddPkg p5-IO-Socket-SSL
+	AddPkg python36
 	AddPkg git
 	AddPkg wget
 	AddPkg nano
